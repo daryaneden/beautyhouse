@@ -1,5 +1,5 @@
 run:
-	uvicorn main:app --reload --port 8000
+	gunicorn app.main:app --worker-class uvicorn.workers.UvicornWorker -c gunicorn.confic.py
 
 mig-create: #создание миграции
 	alembic revision --autogenerate -m ${MIGRATION}
