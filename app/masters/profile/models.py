@@ -2,7 +2,7 @@ from app.infrastructure.database import Base
 from sqlalchemy.orm import Mapped, mapped_column
 from typing import Optional
 
-class Masters(Base):
+class MasterProfile(Base):
     __tablename__ = "Masters"
     id: Mapped[int] = mapped_column(primary_key=True, nullable=False)
     username: Mapped[str] = mapped_column(nullable=False)

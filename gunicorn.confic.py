@@ -1,5 +1,5 @@
 from uvicorn.workers import UvicornWorker
 
-bind = '0.0.0.0:8000'
+bind = 'localhost:8080'
 workers = 4
 default_worker_class = UvicornWorker
