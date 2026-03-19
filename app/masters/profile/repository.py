@@ -1,6 +1,5 @@
 from sqlalchemy import select, delete, update, insert
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.masters.profile.schema import MasterProfileSchema
 from app.masters.profile.models import MasterProfile
 
 class MasterProfileRepository():
