@@ -11,14 +11,13 @@ async def master_auth_service(get_test_session):
     return MasterAuthService(master_profile_repository=MasterProfileRepository(db_session=get_test_session),
                              settings=Settings())
 
-@pytest_asyncio.fixture()
+@pytest_asyncio.fixture(scope='session')
 async def master_profile_service(get_test_session):
     return MasterProfileService(master_profile_repository=MasterProfileRepository(db_session=get_test_session),
-                                master_auth_service=MasterAuthService(
-                                    master_profile_repository=MasterProfileRepository(db_session=get_test_session),
-                                    settings=Settings()    
+                                master_auth_service=MasterAuthService(master_profile_repository=MasterProfileRepository(db_session=get_test_session), 
+                                                                       settings=Settings()  
                                 ))
 
 # @pytest_asyncio.fixture
-# async def master_profile_repository():
-#     return MasterProfileRepository(db_session=get_test_session)
+# # async def master_profile_repository():
+# #     return MasterProfileRepository(db_session=get_test_session)
