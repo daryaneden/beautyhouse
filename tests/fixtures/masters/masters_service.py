@@ -4,7 +4,7 @@ from app.masters.auth.service import MasterAuthService
 from app.masters.profile.service import MasterProfileService
 from app.masters.profile.repository import MasterProfileRepository
 from app.settings import Settings 
-from tests.fixture.infrastructure import get_test_session
+from tests.fixtures.infrastructure import get_test_session
 
 @pytest_asyncio.fixture()
 async def master_auth_service(get_test_session):

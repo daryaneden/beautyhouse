@@ -11,7 +11,9 @@ AsyncSessionFactory = async_sessionmaker(
     expire_on_commit=False
 )
 
-
 async def get_db_session():
-    async with AsyncSessionFactory() as session:
+    session = AsyncSessionFactory()
+    try:
         yield session
+    finally:
+        await session.close()

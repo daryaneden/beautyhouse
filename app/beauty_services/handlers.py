@@ -17,10 +17,15 @@ async def get_beauty_services(beauty_services_service: Annotated[BeautyServiceSe
 @router.post('/',
              response_model=BeautyServiceSchema)
 async def create_beauty_service(beauty_services_service: Annotated[BeautyServiceService, Depends(get_beauty_services_service)],
-                                body: BeautyServiceCreateSchema,
+                                service_name: str, 
+                                client_name: str,
+                                date: str,
                                 master_id: int = Depends(get_request_master_id)
                                 ):
-    return await beauty_services_service.create_beauty_service(master_id=master_id, body=body)
+    return await beauty_services_service.create_beauty_service(service_name = service_name, 
+                                                            client_name = client_name,
+                                                            date = date,
+                                                            master_id = master_id)
 
 @router.patch('/{service_id}',
               response_model=BeautyServiceSchema)

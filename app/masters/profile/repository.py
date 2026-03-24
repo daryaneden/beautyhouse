@@ -1,9 +1,11 @@
 from sqlalchemy import select, delete, update, insert
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.masters.profile.models import MasterProfile
+from app.infrastructure.database.accessor import get_db_session
+from fastapi import Depends
 
 class MasterProfileRepository():
-    def __init__(self, db_session: AsyncSession):
+    def __init__(self, db_session: AsyncSession = Depends(get_db_session)):
         self.db_session = db_session
 
     async def create_master_profile(self, 
@@ -15,19 +17,16 @@ class MasterProfileRepository():
                                        full_name=full_name,
                                        password=password,
                                        email=email).returning(MasterProfile.id)
-        async with self.db_session as session:
-            master_id: int = (await session.execute(query)).scalar()
-            await session.commit()
-            await session.flush()
-            return await self.get_master(master_id)
+        master_id: int = (await self.db_session.execute(query)).scalar()
+        await self.db_session.commit()
+        await self.db_session.flush()
+        return await self.get_master(master_id)
         
     async def get_master(self,
                          master_id: int) -> MasterProfile | None:
         query = select(MasterProfile).where(MasterProfile.id == master_id)
-        async with self.db_session as session:
-            return (await session.execute(query)).scalar_one_or_none()
+        return (await self.db_session.execute(query)).scalar_one_or_none()
         
     async def get_master_by_username(self, username) -> MasterProfile:
         query = select(MasterProfile).where(MasterProfile.username == username)
-        async with self.db_session as session:
-            return (await session.execute(query)).scalar_one_or_none()
+        return (await self.db_session.execute(query)).scalar_one_or_none()

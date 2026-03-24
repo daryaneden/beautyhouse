@@ -11,7 +11,6 @@ from app.infrastructure.database.accessor import get_db_session
 from app.exceptions import TokenExpiredException, TokenNotCorrectException
 
 
-
 async def get_beauty_services_repository(db_session: AsyncSession = Depends(get_db_session)) -> BeautyServiceRepository:
     return BeautyServiceRepository(db_session)
 
