@@ -11,7 +11,7 @@ import pytest
 def settings():
     return Settings()
 
-test_engine = create_async_engine(url='postgresql+asyncpg://postgres:password@localhost:5435/beautyhouse-test',
+test_engine = create_async_engine(url='postgresql+asyncpg://postgres:password@db-test:5435/beautyhouse-test', 
                              future=True,
                              echo=True,
                              pool_pre_ping=True)
@@ -19,6 +19,8 @@ test_engine = create_async_engine(url='postgresql+asyncpg://postgres:password@lo
 AsyncSessionFactory = async_sessionmaker(test_engine,
                                          autoflush=False,
                                          expire_on_commit=False)
+
+#db-test вместо localhost д/запуска в контейнере
 
 
 @pytest_asyncio.fixture(scope="session", autouse=True)
