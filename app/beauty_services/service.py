@@ -1,5 +1,5 @@
 from app.beauty_services.repository import BeautyServiceRepository
-from app.beauty_services.schema import BeautyServiceSchema, BeautyServiceCreateSchema
+from app.beauty_services.schema import BeautyServiceSchema
 from app.exceptions import ServiceNotFoundException
 from dataclasses import dataclass
 
@@ -13,9 +13,14 @@ class BeautyServiceService:
         return services_schema
     
     async def create_beauty_service(self, 
-                                    body: BeautyServiceCreateSchema,
-                                 master_id: int) -> BeautyServiceSchema | None:
-        service_id = await self.beauty_service_repository.create_beauty_service(service=body, master_id=master_id)
+                                    service_name: str, 
+                                    client_name: str,
+                                    master_id: int,
+                                    date: str) -> BeautyServiceSchema | None:
+        service_id = await self.beauty_service_repository.create_beauty_service(service_name = service_name, 
+                                                                                client_name = client_name,
+                                                                                date = date,
+                                                                                master_id = master_id)
         service = await self.beauty_service_repository.get_beauty_service(service_id=service_id)
         return BeautyServiceSchema.model_validate(service)
     
