@@ -4,7 +4,6 @@ from datetime import timedelta
 # from app.masters.auth.schema import MasterLoginSchema
 # from app.masters.auth.service import MasterAuthService
 # from app.settings import Settings
-import pytest
 
 
 def test_generate_access_token(master_auth_service,

@@ -1,4 +1,3 @@
-from typing import Union
 from fastapi import FastAPI
 from app.beauty_services.handlers import router as beautyservice_router
 from app.masters.profile.handlers import router as master_profile_router

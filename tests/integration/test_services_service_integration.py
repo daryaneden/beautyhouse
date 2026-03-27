@@ -1,5 +1,4 @@
 import pytest
-from tests.fixtures.infrastructure import get_test_session
 from app.beauty_services.schema import BeautyServiceSchema
 
 
