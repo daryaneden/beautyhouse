@@ -1,5 +1,5 @@
 import pytest_asyncio
-from app.masters.auth.service import MasterAuthService
+from masters.auth.service import MasterAuthService
 from app.masters.profile.service import MasterProfileService
 from app.masters.profile.repository import MasterProfileRepository
 from app.settings import Settings 
