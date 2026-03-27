@@ -1,5 +1,3 @@
-import asyncio
-import pytest
 
 pytest_plugins = [
     'fixtures.masters.masters_service',

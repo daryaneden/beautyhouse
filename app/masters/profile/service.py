@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from app.masters.profile.repository import MasterProfileRepository
-from app.masters.profile.schema import MasterProfileSchema
 from app.masters.auth.schema import MasterLoginSchema
 from app.masters.auth.service import MasterAuthService
 

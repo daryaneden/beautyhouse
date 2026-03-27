@@ -1,5 +1,5 @@
 from fastapi import APIRouter, status, HTTPException
-from app.beauty_services.schema import BeautyServiceSchema, BeautyServiceCreateSchema
+from app.beauty_services.schema import BeautyServiceSchema
 from app.beauty_services.service import BeautyServiceService
 from dependencies import get_beauty_services_service
 from typing import Annotated

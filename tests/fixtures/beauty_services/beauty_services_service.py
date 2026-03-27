@@ -1,8 +1,6 @@
 import pytest_asyncio
 from app.beauty_services.repository import BeautyServiceRepository
 from app.beauty_services.service import BeautyServiceService
-from app.settings import Settings 
-from tests.fixtures.infrastructure import get_test_session
 
 
 @pytest_asyncio.fixture()

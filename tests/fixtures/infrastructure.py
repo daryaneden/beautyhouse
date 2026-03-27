@@ -1,7 +1,6 @@
-from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from app.settings import Settings
 from app.infrastructure.database.database import Base
-from app.settings import Settings
 import pytest_asyncio
 import pytest
 

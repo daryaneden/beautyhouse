@@ -1,4 +1,4 @@
-from sqlalchemy import select, delete, update, insert
+from sqlalchemy import select, insert
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.masters.profile.models import MasterProfile
 from app.infrastructure.database.accessor import get_db_session
