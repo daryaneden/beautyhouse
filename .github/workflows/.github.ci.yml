@@ -62,7 +62,7 @@ jobs:
       - name: Run Integration Test
         run: 
           |
-          export PYTHONPATH=$PYTHONPATH:$(pwd)
+          export PYTHONPATH=$PYTHONPATH:.
           python3 -m pytest tests/integration
       - name: Docker Container Close
         run: docker compose -f docker-compose.test.yml down
