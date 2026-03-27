@@ -38,9 +38,6 @@ jobs:
       - name: Install Dependencies
         run:
           python3 -m pip install -r requirements.txt
-      - name: Set pythonpath
-        run: |
-          echo "PYTHONPATH=app" >> $GITHUB_ENV
       - name: Run Unit Tests
         run: 
           python3 -m pytest tests/unit
@@ -67,7 +64,7 @@ jobs:
         run: 
           |
           export PYTHONPATH=$PYTHONPATH:.
-          python -m pytest tests/integration
+          python3 -m pytest
       - name: Docker Container Close
         run: docker compose -f docker-compose.test.yml down
 
