@@ -38,9 +38,10 @@ jobs:
       - name: Install Dependencies
         run:
           python3 -m pip install -r requirements.txt
+      - name: Set pythonpath
+        run: |
+          echo "PYTHONPATH=app" >> $GITHUB_ENV
       - name: Run Unit Tests
-        env:
-          PYTHONPATH: ${{ github.workspace }}
         run: 
           python3 -m pytest tests/unit
 
