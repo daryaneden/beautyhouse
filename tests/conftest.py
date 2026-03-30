@@ -1,10 +1,10 @@
 
 pytest_plugins = [
-    'masters.masters_service',
-    'infrastructure',
-    'beauty_services.beauty_services_service',
-    'beauty_services.beauty_services_repository',
-    'masters.master_profile_repository'
+    'tests.fixtures.masters.masters_service',
+    'tests.fixtures.infrastructure',
+    'tests.fixtures.beauty_services.beauty_services_service',
+    'tests.fixtures.beauty_services.beauty_services_repository',
+    'tests.fixtures.masters.master_profile_repository'
 ]
 
 
