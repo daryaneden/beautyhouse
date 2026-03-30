@@ -1,11 +1,12 @@
 import pytest
 from app.masters.profile.models import MasterProfile
+from fixtures.masters.master_profile_repository import master_profile_repository
 
 
 pytestmark = pytest.mark.asyncio
 
 @pytest.mark.asyncio(loop_scope="session")
-async def test_create_master_profile(master_profile_repository):
+async def test_create_master_profile(master_profile_repository=master_profile_repository):
     username='test_username'
     full_name='test_full_name'
     password='test_password'
@@ -20,7 +21,7 @@ async def test_create_master_profile(master_profile_repository):
 
 
 @pytest.mark.asyncio(loop_scope="session")
-async def test_get_master_by_username(master_profile_repository):
+async def test_get_master_by_username(master_profile_repository=master_profile_repository):
     username='test_username'
     master_id = 1
 

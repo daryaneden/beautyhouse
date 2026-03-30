@@ -1,13 +1,12 @@
 from jose import jwt
 import datetime as dt
 from datetime import timedelta
-# from app.masters.auth.schema import MasterLoginSchema
-# from app.masters.auth.service import MasterAuthService
-# from app.settings import Settings
+from fixtures.masters.masters_service import master_auth_service
+from fixtures.infrastructure import settings
 
 
-def test_generate_access_token(master_auth_service,
-                               settings):
+def test_generate_access_token(master_auth_service=master_auth_service,
+                               settings=settings):
     master_id = 1
 
     token = master_auth_service.generate_access_token(master_id)
@@ -18,7 +17,8 @@ def test_generate_access_token(master_auth_service,
     assert decoded_master_id == master_id
 
 
-def test_get_master_id_from_access_token(master_auth_service, settings):
+def test_get_master_id_from_access_token(master_auth_service=master_auth_service,
+                               settings=settings):
     master_id = str(1)
     expire_date_unix = (dt.datetime.now() + timedelta(days=1)).timestamp()
 

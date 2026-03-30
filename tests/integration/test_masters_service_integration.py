@@ -1,9 +1,11 @@
 import pytest
+from fixtures.masters.masters_service import master_profile_service
+from fixtures.masters.masters_service import master_auth_service
 
 pytestmark = pytest.mark.asyncio
 
 @pytest.mark.asyncio(loop_scope="session")
-async def test_create_master_profile(master_profile_service):
+async def test_create_master_profile(master_profile_service=master_profile_service):
     username = 'test_username_1'
     full_name = 'test_full_name'
     password = 'test_password'
@@ -17,7 +19,7 @@ async def test_create_master_profile(master_profile_service):
     assert master_id is not None
 
 @pytest.mark.asyncio(loop_scope="session")
-async def test_login(master_auth_service):
+async def test_login(master_auth_service=master_auth_service):
     username = 'test_username_1'
     password = 'test_password'
     
