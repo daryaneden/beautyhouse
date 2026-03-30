@@ -1,8 +1,8 @@
 from jose import jwt
 import datetime as dt
 from datetime import timedelta
-from fixtures.masters.masters_service import master_auth_service
-from fixtures.infrastructure import settings
+from tests.fixtures.masters.masters_service import master_auth_service
+from tests.fixtures.infrastructure import settings
 
 
 def test_generate_access_token(master_auth_service=master_auth_service,

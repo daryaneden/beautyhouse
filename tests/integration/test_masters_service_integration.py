@@ -1,6 +1,6 @@
 import pytest
-from fixtures.masters.masters_service import master_profile_service
-from fixtures.masters.masters_service import master_auth_service
+from tests.fixtures.masters.masters_service import master_profile_service
+from tests.fixtures.masters.masters_service import master_auth_service
 
 pytestmark = pytest.mark.asyncio
 

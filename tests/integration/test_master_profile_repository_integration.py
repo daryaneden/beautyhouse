@@ -1,6 +1,6 @@
 import pytest
 from app.masters.profile.models import MasterProfile
-from fixtures.masters.master_profile_repository import master_profile_repository
+from tests.fixtures.masters.master_profile_repository import master_profile_repository
 
 
 pytestmark = pytest.mark.asyncio

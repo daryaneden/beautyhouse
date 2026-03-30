@@ -2,7 +2,7 @@ import pytest_asyncio
 from app.masters.auth.service import MasterAuthService
 from app.masters.profile.service import MasterProfileService
 from app.masters.profile.repository import MasterProfileRepository
-from fixtures.infrastructure import get_test_session
+from tests.fixtures.infrastructure import get_test_session
 from app.settings import Settings 
 
 @pytest_asyncio.fixture()

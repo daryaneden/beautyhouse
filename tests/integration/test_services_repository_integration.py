@@ -1,7 +1,7 @@
 import pytest
 from app.beauty_services.models import BeautyServices
 from app.beauty_services.schema import BeautyServiceSchema
-from fixtures.beauty_services.beauty_services_repository import beauty_services_repository
+from tests.fixtures.beauty_services.beauty_services_repository import beauty_services_repository
 
 
 pytestmark = pytest.mark.asyncio
