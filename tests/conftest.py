@@ -1,4 +1,3 @@
-
 pytest_plugins = [
     'tests.fixtures.masters.masters_service',
     'tests.fixtures.infrastructure',
