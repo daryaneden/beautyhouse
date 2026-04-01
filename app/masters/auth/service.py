@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from app.masters.profile.repository import MasterProfileRepository
 from app.masters.auth.schema import MasterLoginSchema
-from app.settings import Settings
+from app.setting import Settings
 from app.masters.profile.models import MasterProfile
 from app.exceptions import MasterNotFoundException, IncorrectPasswordException, TokenNotCorrectException, TokenExpiredException
 from jose import jwt
