@@ -1,5 +1,5 @@
 import pytest_asyncio
-from app.masters.profile.repository import MasterProfileRepository
+from masters.profile.repository import MasterProfileRepository
 
 
 
