@@ -1,4 +1,4 @@
-from app.infrastructure.database import Base
+from infrastructure.database import Base
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import ForeignKey
 

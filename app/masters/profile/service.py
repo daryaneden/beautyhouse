@@ -1,7 +1,7 @@
 from dataclasses import dataclass
-from app.masters.profile.repository import MasterProfileRepository
-from app.masters.auth.schema import MasterLoginSchema
-from app.masters.auth.service import MasterAuthService
+from masters.profile.repository import MasterProfileRepository
+from masters.auth.schema import MasterLoginSchema
+from masters.auth.service import MasterAuthService
 
 @dataclass
 class MasterProfileService():

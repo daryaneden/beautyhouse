@@ -1,9 +1,9 @@
 from fastapi import APIRouter
 from typing import Annotated
 from fastapi import Depends
-from app.masters.profile.schema import MasterProfileSchema
-from app.masters.auth.schema import MasterLoginSchema
-from app.masters.profile.service import MasterProfileService
+from masters.profile.schema import MasterProfileSchema
+from masters.auth.schema import MasterLoginSchema
+from masters.profile.service import MasterProfileService
 from dependencies import get_master_profile_service
 
 

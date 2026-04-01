@@ -1,9 +1,9 @@
 from dataclasses import dataclass
-from app.masters.profile.repository import MasterProfileRepository
-from app.masters.auth.schema import MasterLoginSchema
-from app.settings import Settings
-from app.masters.profile.models import MasterProfile
-from app.exceptions import MasterNotFoundException, IncorrectPasswordException, TokenNotCorrectException, TokenExpiredException
+from masters.profile.repository import MasterProfileRepository
+from masters.auth.schema import MasterLoginSchema
+from settings import Settings
+from masters.profile.models import MasterProfile
+from exceptions import MasterNotFoundException, IncorrectPasswordException, TokenNotCorrectException, TokenExpiredException
 from jose import jwt
 from jose.exceptions import JWTError
 from datetime import datetime as dt
