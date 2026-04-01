@@ -1,6 +1,6 @@
-from beauty_services.repository import BeautyServiceRepository
-from beauty_services.schema import BeautyServiceSchema
-from exceptions import ServiceNotFoundException
+from app.beauty_services.repository import BeautyServiceRepository
+from app.beauty_services.schema import BeautyServiceSchema
+from app.exceptions import ServiceNotFoundException
 from dataclasses import dataclass
 
 @dataclass

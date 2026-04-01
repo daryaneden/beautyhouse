@@ -1,8 +1,8 @@
 import pytest_asyncio
-from masters.auth.service import MasterAuthService
-from masters.profile.service import MasterProfileService
-from masters.profile.repository import MasterProfileRepository
-from settings import Settings 
+from app.masters.auth.service import MasterAuthService
+from app.masters.profile.service import MasterProfileService
+from app.masters.profile.repository import MasterProfileRepository
+from app.settings import Settings 
 
 @pytest_asyncio.fixture()
 async def master_auth_service(get_test_session):
@@ -15,7 +15,3 @@ async def master_profile_service(get_test_session):
                                 master_auth_service=MasterAuthService(master_profile_repository=MasterProfileRepository(db_session=get_test_session), 
                                                                        settings=Settings()  
                                 ))
-
-# @pytest_asyncio.fixture
-# # async def master_profile_repository():
-# #     return MasterProfileRepository(db_session=get_test_session)

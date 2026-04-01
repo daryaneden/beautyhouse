@@ -2,9 +2,9 @@ from fastapi import APIRouter, HTTPException, status
 from app.exceptions import MasterNotFoundException, IncorrectPasswordException
 from typing import Annotated 
 from fastapi import Depends
-from masters.profile.schema import MasterProfileSchema
-from masters.auth.schema import MasterLoginSchema
-from masters.auth.service import MasterAuthService
+from app.masters.profile.schema import MasterProfileSchema
+from app.masters.auth.schema import MasterLoginSchema
+from app.masters.auth.service import MasterAuthService
 from dependencies import get_master_auth_service
 
 router = APIRouter(prefix='/masters/auth', tags=['masters_auth'])

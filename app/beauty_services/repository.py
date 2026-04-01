@@ -1,7 +1,7 @@
 from sqlalchemy import select, delete, update, insert
 from sqlalchemy.ext.asyncio import AsyncSession
-from beauty_services.models import BeautyServices
-from infrastructure.database.accessor import get_db_session
+from app.beauty_services.models import BeautyServices
+from app.infrastructure.database.accessor import get_db_session
 from fastapi import Depends
 
 class BeautyServiceRepository():

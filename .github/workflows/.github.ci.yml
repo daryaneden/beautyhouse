@@ -39,9 +39,9 @@ jobs:
         run:
           python3 -m pip install -r requirements.txt
       - name: Run Unit Tests
-        run: pytest app/tests/unit -v
+        run: pytest tests/unit/ -v
         env: 
-          PYTHONPATH: ${{ github.workspace }}/app
+          PYTHONPATH: ${{ github.workspace }}
 
   integration-test:
     runs-on: ubuntu-latest

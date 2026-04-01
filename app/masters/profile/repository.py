@@ -1,7 +1,7 @@
 from sqlalchemy import select, insert
 from sqlalchemy.ext.asyncio import AsyncSession
-from masters.profile.models import MasterProfile
-from infrastructure.database.accessor import get_db_session
+from app.masters.profile.models import MasterProfile
+from app.infrastructure.database.accessor import get_db_session
 from fastapi import Depends
 
 class MasterProfileRepository():

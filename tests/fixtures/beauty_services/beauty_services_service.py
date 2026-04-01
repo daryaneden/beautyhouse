@@ -1,6 +1,6 @@
 import pytest_asyncio
-from beauty_services.repository import BeautyServiceRepository
-from beauty_services.service import BeautyServiceService
+from app.beauty_services.repository import BeautyServiceRepository
+from app.beauty_services.service import BeautyServiceService
 
 
 @pytest_asyncio.fixture()
