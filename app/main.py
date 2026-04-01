@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from app.beauty_services.handlers import router as beautyservice_router
-from app.masters.profile.handlers import router as master_profile_router
-from app.masters.auth.handlers import router as master_auth_router
+from beauty_services.handlers import router as beautyservice_router
+from masters.profile.handlers import router as master_profile_router
+from masters.auth.handlers import router as master_auth_router
 
 # Create a FastAPI application instance
 app = FastAPI()
