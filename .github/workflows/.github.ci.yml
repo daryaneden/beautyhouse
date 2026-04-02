@@ -29,6 +29,21 @@ jobs:
     strategy:
       matrix:
         python-version: [ "3.12" ]
+    services:
+      postgres:
+        image: postgres:16.2
+        env:
+          POSTGRES_DB: beautyhouse-test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
+        # Настройка проверки здоровья для ожидания запуска
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
@@ -39,8 +54,12 @@ jobs:
         run:
           python3 -m pip install -r requirements.txt
       - name: Run Unit Tests
-        run: 
-          python3 -m pytest tests/unit
+        env:
+          PYTHONPATH: .
+          DATABASE_URL: postgresql://postgres:password@localhost:5432/beautyhouse-test
+        run:
+          python3 -m pytest tests/unit/
+
 
   integration-test:
     runs-on: ubuntu-latest

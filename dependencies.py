@@ -1,5 +1,5 @@
 from app.beauty_services.service import BeautyServiceService
-from app.settings import Settings 
+from app.setting import Settings 
 from app.beauty_services.repository import BeautyServiceRepository
 from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import Depends, security, Security, HTTPException

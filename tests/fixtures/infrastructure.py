@@ -1,5 +1,5 @@
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
-from app.settings import Settings
+from app.setting import Settings
 from app.infrastructure.database.database import Base
 import pytest_asyncio
 import pytest
@@ -10,7 +10,7 @@ import pytest
 def settings():
     return Settings()
 
-test_engine = create_async_engine(url='postgresql+asyncpg://postgres:password@db-test:5435/beautyhouse-test', 
+test_engine = create_async_engine(url='postgresql+asyncpg://postgres:password@localhost:5432/beautyhouse-test', 
                              future=True,
                              echo=True,
                              pool_pre_ping=True)

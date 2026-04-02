@@ -1,10 +1,9 @@
-
 pytest_plugins = [
-    'fixtures.masters.masters_service',
-    'fixtures.infrastructure',
-    'fixtures.beauty_services.beauty_services_service',
-    'fixtures.beauty_services.beauty_services_repository',
-    'fixtures.masters.master_profile_repository'
-]
+    'tests.fixtures.masters.masters_service',
+    'tests.fixtures.infrastructure',
+    'tests.fixtures.beauty_services.beauty_services_service',
+    'tests.fixtures.beauty_services.beauty_services_repository',
+    'tests.fixtures.masters.master_profile_repository'
+] 
 
 
