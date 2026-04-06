@@ -5,7 +5,7 @@ from app.setting import Settings
 from app.masters.profile.models import MasterProfile
 from app.exceptions import MasterNotFoundException, IncorrectPasswordException, TokenNotCorrectException, TokenExpiredException
 from jose import jwt
-from jose.exceptions import JWTError
+from jose.exceptions import JWTError 
 from datetime import datetime as dt
 from datetime import timedelta
 
