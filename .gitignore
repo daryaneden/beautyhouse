@@ -4,6 +4,6 @@
 /app/settings.py
 .gitignore
 *.pyc
-/*beauty_services/
-/*infrastructure/
-/*masters/
+/app/*beauty_services/
+/app/*infrastructure/
+/app/*masters/
