@@ -3,9 +3,9 @@
 
 
 from app.application.masters.auth.dtos import MasterAuthDto
+from app.domain.masters.model import MasterProfile
 from app.domain.masters.jwt_interface import JwtProvider
 from app.domain.masters.repository import MasterProfileRepository
-from app.application.masters.profile.exceptions import MasterNotFoundException, IncorrectPasswordException, IncorrectTokenException, TokenExpiredException
 
 class MasterProfileUseCases:
     
@@ -22,7 +22,7 @@ class MasterProfileUseCases:
                                    password: str,
                                    email: str) -> MasterAuthDto:
         
-        master = await self.repo.create_master_profile(username=username,
+        master: MasterProfile = await self.repo.create_master_profile(username=username,
                                 full_name=full_name,
                                 password=password,
                                 email=email)

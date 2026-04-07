@@ -1,3 +1,6 @@
+#принимает entities и возвращает dtos
+
+
 from app.domain.masters.repository import MasterProfileRepository
 from app.application.masters.auth.dtos import MasterAuthDto
 from app.domain.masters.jwt_interface import JwtProvider
@@ -17,13 +20,13 @@ class MasterAuthUseCases:
                    username: str,
                    password: str) -> MasterAuthDto:
        
-       master = await self.repo.get_master_by_username(username=username)
+       master: MasterProfile = await self.repo.get_master_by_username(username=username)
        self._validate_auth_user(master, password)
        access_token = self.jwt_provider.generate_access_token(master_id=master.id)
        return MasterAuthDto(master_id=master.id, access_token=access_token)
 
     @staticmethod
-    def _validate_auth_user(master: MasterProfile, password: str) -> MasterProfile:
+    def _validate_auth_user(master: MasterProfile, password: str) -> None:
 
         if not master:
             raise MasterNotFoundException
