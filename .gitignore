@@ -1,9 +1,0 @@
-**/__pycache__/
-*.env
-*.confic.py
-/app/settings.py
-.gitignore
-*.pyc
-app/*beauty_services/
-app/*infrastructure/
-app/*masters/
