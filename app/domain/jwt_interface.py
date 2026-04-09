@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from app.domain.masters.model import MasterProfile
 
 class JwtProvider(ABC):
 
@@ -10,5 +9,10 @@ class JwtProvider(ABC):
 
     @abstractmethod
     async def get_master_id_from_access_token(self, access_token: str) -> int:
+
+        pass
+
+    @abstractmethod
+    async def get_request_master_id(token: str) -> int:
 
         pass

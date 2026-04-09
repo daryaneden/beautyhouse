@@ -3,9 +3,9 @@
 
 
 from app.application.masters.auth.dtos import MasterAuthDto
-from app.domain.masters.model import MasterProfile
-from app.domain.masters.jwt_interface import JwtProvider
-from app.domain.masters.repository import MasterProfileRepository
+from app.domain.masters.entities import MasterProfile
+from app.domain.jwt_interface import JwtProvider
+from app.domain.masters.interface import MasterProfileRepository
 
 class MasterProfileUseCases:
     

@@ -3,7 +3,7 @@
 #принимает entities и возвращает dtos
 
 from app.domain.beauty_services.interface import BeautyServicesRepository
-from app.domain.beauty_services.model import BeautyServices
+from app.domain.beauty_services.entities import BeautyServices
 from app.application.beauty_services.dtos import BeautyServiceDto
 from app.application.beauty_services.exceptions import ServiceNotFoundException
 

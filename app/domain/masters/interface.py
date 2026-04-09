@@ -2,7 +2,7 @@
 #Возвращаются всегда только entities
 
 from abc import ABC, abstractmethod
-from app.domain.masters.model import MasterProfile
+from app.domain.masters.entities import MasterProfile
 
 class MasterProfileRepository(ABC):
 

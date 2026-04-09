@@ -1,10 +1,10 @@
 #принимает entities и возвращает dtos
 
 
-from app.domain.masters.repository import MasterProfileRepository
+from app.domain.masters.interface import MasterProfileRepository
 from app.application.masters.auth.dtos import MasterAuthDto
-from app.domain.masters.jwt_interface import JwtProvider
-from app.domain.masters.model import MasterProfile
+from app.domain.jwt_interface import JwtProvider
+from app.domain.masters.entities import MasterProfile
 from app.application.masters.auth.exceptions import MasterNotFoundException, IncorrectPasswordException
 
 class MasterAuthUseCases:

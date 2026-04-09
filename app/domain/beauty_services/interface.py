@@ -3,7 +3,7 @@
 
 
 from abc import ABC, abstractmethod
-from app.domain.beauty_services.model import BeautyServices
+from app.domain.beauty_services.entities import BeautyServices
 
 class BeautyServicesRepository(ABC):
 
