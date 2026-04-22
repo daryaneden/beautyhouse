@@ -5,7 +5,6 @@ from app.presentation.dependencies import get_beauty_services_use_cases
 from typing import Annotated
 from fastapi import Depends
 from app.infrastructure.jwt_service import JwtService
-from app.exceptions import ServiceNotFoundException
 from app.presentation.dependencies import get_jwt_service
 from app.presentation.dependencies import get_beauty_services_mapper
 from app.presentation.beauty_services.v1.mappers import BeautyServicesMapper
