@@ -1,6 +1,5 @@
 import pytest
-from app.domain.beauty_services.entities import BeautyServices
-from app.presentation.beauty_services.v1.schemas import BeautyServiceSchema
+from app.infrastructure.beauty_services.models import BeautyServices
 
 
 pytestmark = pytest.mark.asyncio
@@ -59,6 +58,6 @@ async def test_delete_beauty_service(beauty_services_repository):
     await beauty_services_repository.delete_beauty_service(service_id=service_id)
 
     services = await beauty_services_repository.get_beauty_services()
-    services_schema = [BeautyServiceSchema.model_validate(service) for service in services]
+    services_schema = [BeautyServices.model_validate(service) for service in services]
 
     assert len(services_schema) == 0

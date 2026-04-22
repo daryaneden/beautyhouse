@@ -1,5 +1,5 @@
 import pytest
-from app.domain.masters.entities import MasterProfile
+from app.infrastructure.masters.models import MasterProfile
 
 
 pytestmark = pytest.mark.asyncio
