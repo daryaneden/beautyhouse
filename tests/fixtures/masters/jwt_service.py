@@ -4,5 +4,5 @@ from app.setting import Settings
 
 
 @pytest_asyncio.fixture()
-async def get_jwt_service():
+async def jwt_service():
     return JwtService(settings=Settings())
