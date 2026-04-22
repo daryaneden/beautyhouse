@@ -1,5 +1,5 @@
 import pytest
-from app.presentation.beauty_services.v1.schemas import BeautyServiceSchema
+from app.application.beauty_services.dtos import BeautyServiceDto
 
 
 pytestmark = pytest.mark.asyncio
@@ -17,17 +17,17 @@ async def test_create_beauty_service(beauty_services_use_cases):
                                                                                 date = date,
                                                                                 master_id = master_id)
     
-    assert isinstance(beauty_service, BeautyServiceSchema)
+    assert isinstance(beauty_service, BeautyServiceDto)
     assert beauty_service.master_id == master_id
 
 @pytest.mark.asyncio(loop_scope="session")
 async def test_get_beauty_services(beauty_services_use_cases):
 
     services = await beauty_services_use_cases.get_beauty_services()
-    services_schema = [BeautyServiceSchema.model_validate(service) for service in services]
+    services_schema = [BeautyServiceDto.model_validate(service) for service in services]
 
     assert isinstance(services_schema, list)
-    assert isinstance(services_schema[0], BeautyServiceSchema)
+    assert isinstance(services_schema[0], BeautyServiceDto)
 
 @pytest.mark.asyncio(loop_scope="session")
 async def test_update_beauty_service_date(beauty_services_use_cases):
@@ -51,6 +51,6 @@ async def test_delete_beauty_service(beauty_services_use_cases):
     await beauty_services_use_cases.delete_beauty_service(service_id=service_id, 
                                                         master_id=master_id)
     services = await beauty_services_use_cases.get_beauty_services()
-    services_schema = [BeautyServiceSchema.model_validate(service) for service in services]
+    services_schema = [BeautyServiceDto.model_validate(service) for service in services]
 
     assert len(services_schema) == 0
