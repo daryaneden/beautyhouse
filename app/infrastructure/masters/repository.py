@@ -3,7 +3,7 @@ from app.infrastructure.masters.models import MasterProfile
 from app.domain.masters.interface import MasterProfileRepository
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, delete, update, insert
+from sqlalchemy import select, insert
 
 class SQLAlchemyMastersRepository(MasterProfileRepository):
 
