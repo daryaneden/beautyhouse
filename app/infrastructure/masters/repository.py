@@ -1,28 +1,22 @@
 from app.infrastructure.db import get_db_session
 from app.infrastructure.masters.models import MasterProfile
 from app.domain.masters.interface import MasterProfileRepository
-from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, insert
 
 class SQLAlchemyMastersRepository(MasterProfileRepository):
 
-    def __init__(self, db_session: AsyncSession = Depends(get_db_session)):
+    def __init__(self, db_session: AsyncSession = get_db_session()):
         self.db_session = db_session
 
     async def create_master_profile(self, 
-                              username: str,
-                              full_name: str,
-                              password: str,
-                              email: str) -> MasterProfile | None:
-        query = insert(MasterProfile).values(username=username,
-                                       full_name=full_name,
-                                       password=password,
-                                       email=email).returning(MasterProfile.id)
-        master_id: int = (await self.db_session.execute(query)).scalar()
-        await self.db_session.commit()
-        await self.db_session.flush()
-        return await self.get_master(master_id)
+                              master_profile_create_model: MasterProfile) -> int:
+        query = insert(MasterProfile).values(username=master_profile_create_model.username,
+                                       full_name=master_profile_create_model.full_name,
+                                       password=master_profile_create_model.password,
+                                       email=master_profile_create_model.email).returning(MasterProfile.id)
+        master_id = (await self.db_session.execute(query)).scalar()
+        return master_id
         
     async def get_master(self,
                          master_id: int) -> MasterProfile | None:

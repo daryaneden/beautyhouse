@@ -1,5 +1,5 @@
 import pytest_asyncio
-from app.infrastructure.jwt_service import JwtService
+from app.presentation.jwt_service import JwtService
 from app.setting import Settings
 
 

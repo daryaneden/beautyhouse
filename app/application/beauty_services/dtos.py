@@ -14,3 +14,7 @@ class BeautyServiceCreateDto(BaseModel):
     service_name: str | None = None
     client_name: str | None = None
     date: str | None = None
+
+class BeautyServiceUpdateDto(BaseModel):
+    id: int | None = None
+    date: str | None = None

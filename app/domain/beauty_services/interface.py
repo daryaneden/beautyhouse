@@ -1,52 +1,43 @@
-#Здесь абстрактный класс репозитория, на который потом в infrastructure будут наложены методы sqlalchemy
-# классы в infrastructure будут наследоваться от этих классов
-
-
 from abc import ABC, abstractmethod
-from app.domain.beauty_services.entities import BeautyServices
+from app.domain.beauty_services.entities import BeautyService
 
-class BeautyServicesRepository(ABC):
+class BeautyServiceRepository(ABC):
 
 
     @abstractmethod
     async def get_beauty_service(self, 
-                                 service_id: int) -> BeautyServices | None:
+                                 beauty_service_id: int) -> BeautyService | None:
         
         pass
 
     @abstractmethod
-    async def get_beauty_services(self) -> list[BeautyServices]:
+    async def get_beauty_services(self) -> list[BeautyService]:
         
         pass 
 
     @abstractmethod
     async def create_beauty_service(self, 
-                                    service_name: str, 
-                                    client_name: str,
-                                    master_id: int,
-                                    date: str) -> BeautyServices:
+                                    beauty_service_create_data: BeautyService,
+                                    master_id: int) -> None:
         
     
         pass
     
     @abstractmethod
     async def get_master_beauty_service(self, 
-                                 service_id: int,
-                                 master_id: int) -> BeautyServices | None:
+                                 beauty_service_id: int,
+                                 master_id: int) -> BeautyService | None:
         
         pass
 
     @abstractmethod
     async def update_beauty_service_date(self, 
-                                         service_id: int,
-                                         date: str,
-                                         master_id: int) -> BeautyServices:
+                                         beauty_service_update_data: BeautyService) -> None:
         
         pass
     
     @abstractmethod
-    async def delete_beauty_service(self, service_id: int, 
-                                    master_id: int) -> None:
+    async def delete_beauty_service(self, beauty_service_id: int) -> None:
 
         pass
 

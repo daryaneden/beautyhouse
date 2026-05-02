@@ -24,8 +24,6 @@ class Base(DeclarativeBase):
         return self.__name__.lower()
 
 async def get_db_session():
-    session = AsyncSessionFactory()
-    try:
-        yield session
-    finally:
-        await session.close()
+    async with AsyncSessionFactory() as session:
+        async with session.begin():
+            yield session

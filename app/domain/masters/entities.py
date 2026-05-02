@@ -1,5 +1,3 @@
-#Обычные классы, не зависящие от FastAPI, SQLAlchemy или Pydantic
-# добавить uuid
 from dataclasses import dataclass
 
 @dataclass

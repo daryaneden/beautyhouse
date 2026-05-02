@@ -2,7 +2,7 @@ import pytest_asyncio
 from app.application.masters.auth.use_cases import MasterAuthUseCases
 from app.application.masters.profile.use_cases import MasterProfileUseCases
 from app.infrastructure.masters.repository import SQLAlchemyMastersRepository
-from app.infrastructure.jwt_service import JwtService
+from app.presentation.jwt_service import JwtService
 from app.setting import Settings 
 
 @pytest_asyncio.fixture()

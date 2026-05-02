@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class MasterProfileRequestSchema(BaseModel):
+class MasterProfileCreateSchema(BaseModel):
     username: str | None = None
     full_name: str | None = None
     password: str | None = None

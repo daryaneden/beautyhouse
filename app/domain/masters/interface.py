@@ -1,6 +1,3 @@
-#Здесь абстрактный класс репозитория, на который потом в infrastructure будут наложены методы sqlalchemy - ЧТО НУЖНО
-#Возвращаются всегда только entities
-
 from abc import ABC, abstractmethod
 from app.domain.masters.entities import MasterProfile
 

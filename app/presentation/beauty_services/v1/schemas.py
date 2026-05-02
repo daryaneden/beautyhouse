@@ -14,3 +14,7 @@ class BeautyServiceCreateSchema(BaseModel):
     service_name: str | None = None
     client_name: str | None = None
     date: str | None = None
+
+class BeautyServiceUpdateSchema(BaseModel):
+    id: int | None = None
+    date: str | None = None

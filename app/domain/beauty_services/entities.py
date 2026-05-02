@@ -1,8 +1,7 @@
-#Обычные классы, не зависящие от FastAPI, SQLAlchemy или Pydantic
 from dataclasses import dataclass
 
 @dataclass
-class BeautyServices():
+class BeautyService():
     
     id: int
     service_name: str

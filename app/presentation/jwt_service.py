@@ -1,14 +1,14 @@
-from app.domain.jwt_interface import JwtProvider
 from app.infrastructure.exceptions import TokenNotCorrectException, TokenExpiredException
 from app.setting import Settings
 from jose import jwt, JWTError
 from datetime import datetime as dt
 from datetime import timedelta
 from fastapi import security, Security, HTTPException
+from fastapi.security import HTTPAuthorizationCredentials
 
-class JwtService(JwtProvider):
+reusable_oauth = security.HTTPBearer()
 
-   reusable_oauth = security.HTTPBearer()
+class JwtService:
 
    def __init__(self, 
                  settings: Settings):
@@ -33,10 +33,10 @@ class JwtService(JwtProvider):
          raise TokenExpiredException
       return payload['user_id']
     
-   async def get_request_master_id(self, token: security.http.HTTPAuthorizationCredentials = Security(reusable_oauth)) -> int:
+   async def get_request_master_id(self, token: HTTPAuthorizationCredentials = Security(reusable_oauth)) -> int:
 
       try:
-         master_id = self.get_master_id_from_access_token(token.credentials)
+         master_id = self.get_master_id_from_access_token(access_token=token.credentials)
       except TokenExpiredException as e:
          raise HTTPException(
             status_code=401,
@@ -48,3 +48,4 @@ class JwtService(JwtProvider):
             detail = e.detail
         )
       return master_id
+   

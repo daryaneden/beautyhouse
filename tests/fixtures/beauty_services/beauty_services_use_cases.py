@@ -1,6 +1,7 @@
 import pytest_asyncio
 from app.infrastructure.beauty_services.repository import SQLAlchemyBeautyServicesRepository
-from app.application.beauty_services.use_cases import BeautyServicesUsecases
+# !!!!!!!!!!!!!!!
+from app.application.beauty_services.use_cases.delete_beauty_service import BeautyServicesUsecases
 
 
 @pytest_asyncio.fixture()
