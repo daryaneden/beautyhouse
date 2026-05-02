@@ -1,6 +1,6 @@
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from app.setting import Settings
-from app.infrastructure.database.database import Base
+from app.infrastructure.db import Base
 import pytest_asyncio
 import pytest
 
