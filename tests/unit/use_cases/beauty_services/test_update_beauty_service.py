@@ -27,5 +27,5 @@ class TestUpdateBeautyServiceDateUseCase:
 
         result = await use_case.execute(mock_beauty_service_update_dto)
         mock_repo.update_beauty_service_date.assert_called_once()
-
+ 
         assert result == None
