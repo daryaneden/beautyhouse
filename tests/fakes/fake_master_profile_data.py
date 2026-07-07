@@ -1,15 +1,24 @@
 import factory
 from faker import Faker
+from app.presentation.masters.profile.v1.schemas import MasterProfileCreateSchema
 from app.infrastructure.masters.models import MasterProfile
 
 faker = Faker()
 
-class MasterProfileData(factory.Factory):
+class FakeMasterProfileSchema(factory.Factory):
+    class Meta:
+        model = MasterProfileCreateSchema
+
+    username = 'test_username' 
+    full_name = factory.LazyFunction(faker.name)
+    password = 'test_password'
+    email = factory.LazyFunction(faker.email)
+
+class FakeMasterProfileData(factory.Factory):
     class Meta:
         model = MasterProfile
 
-    id = 1
-    username = factory.LazyFunction(faker.user_name)
+    username = 'test_username' 
     full_name = factory.LazyFunction(faker.name)
-    password = factory.LazyFunction(faker.password)
+    password = 'test_password'
     email = factory.LazyFunction(faker.email)

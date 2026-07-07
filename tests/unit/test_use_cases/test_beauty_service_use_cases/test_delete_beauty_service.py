@@ -17,7 +17,7 @@ class TestDeleteBeautyServiceUseCase:
     def use_case(self, mock_repo):
         return DeleteBeautyServicesUsecase(repo=mock_repo)
     
-    async def test_create_beauty_service_success(self, use_case, mock_repo):
+    async def test_delete_beauty_service(self, use_case, mock_repo):
 
         result = await use_case.execute(beauty_service_id=1)
         mock_repo.delete_beauty_service.assert_called_once()

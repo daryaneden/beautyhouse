@@ -12,4 +12,5 @@ class UpdateBeautyServiceDateUsecase:
     async def execute(self, 
                       beauty_service_update_dto: BeautyServiceUpdateDto) -> None:
         
+        
         await self.repo.update_beauty_service_date(beauty_service_update_model=beauty_service_update_dto)

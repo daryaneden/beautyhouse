@@ -23,7 +23,7 @@ class TestUpdateBeautyServiceDateUseCase:
     def use_case(self, mock_repo):
         return UpdateBeautyServiceDateUsecase(repo=mock_repo)
     
-    async def test_update_beauty_service_date_success(self, mock_repo, use_case, mock_beauty_service_update_dto):
+    async def test_update_beauty_service_date(self, mock_repo, use_case, mock_beauty_service_update_dto):
 
         result = await use_case.execute(mock_beauty_service_update_dto)
         mock_repo.update_beauty_service_date.assert_called_once()
