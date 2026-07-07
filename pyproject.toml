@@ -5,7 +5,7 @@ description = "Service for beauty masters"
 authors = [
     {name = "Your Name",email = "you@example.com"}
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "factory_boy==3.3.3",
     "Faker==40.28.1",
