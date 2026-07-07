@@ -38,7 +38,7 @@ class SQLAlchemyBeautyServicesRepository(BeautyServiceRepository):
         return service_id
 
     async def update_beauty_service_date(self, 
-                                         beauty_service_update_model: BeautyService) -> BeautyService:
+                                         beauty_service_update_model: BeautyService) -> None:
         query = update(BeautyService).where(BeautyService.id == beauty_service_update_model.id).values(date = beauty_service_update_model.date).returning(BeautyService.id)
         await self.db_session.execute(query)
 

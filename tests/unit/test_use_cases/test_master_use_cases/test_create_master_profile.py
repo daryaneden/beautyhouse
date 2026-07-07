@@ -29,7 +29,7 @@ class TestCreateMasterProfileUseCase:
     def use_case(self, mock_repo):
         return CreateMasterProfileUseCase(repo=mock_repo)
     
-    async def test_create_master_profile_success(self, use_case, mock_create_master_profile_dto, mock_repo):
+    async def test_create_master_profile(self, use_case, mock_create_master_profile_dto, mock_repo):
 
         result = await use_case.execute(mock_create_master_profile_dto)
         mock_repo.create_master_profile.assert_called_once()

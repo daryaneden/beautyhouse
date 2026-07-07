@@ -20,7 +20,7 @@ async def login_master(master_login_use_case: Annotated[MasterLoginUseCase, Depe
                     jwt_service: Annotated[JwtService, Depends(get_jwt_service)]
                     ):
     try:
-        master_id = await master_login_use_case.execute(username=master_login_schema.username, password=master_login_schema.password)
+        master_id = await master_login_use_case.execute(master_login_data_dto=master_login_schema)
         access_token = jwt_service.generate_access_token(master_id=master_id)
         master = MasterProfileResponseSchema(master_id=master_id, access_token=access_token)
         return MasterMapper.to_master_profile_response_schema(master)

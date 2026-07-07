@@ -19,10 +19,26 @@ router = APIRouter(prefix='/services', tags = ['services'], dependencies=[Depend
 
 @router.get('/all',
             response_model=list[BeautyServiceSchema])
-async def get_beauty_services(get_beauty_services_use_cases: Annotated[GetBeautyServicesUseCase, Depends(get_get_beauty_services_use_case)],
+async def get_beauty_services(get_beauty_services_use_case: Annotated[GetBeautyServicesUseCase, Depends(get_get_beauty_services_use_case)],
                               beauty_services_mapper: Annotated[BeautyServicesMapper, Depends(get_beauty_service_mapper)]):
-    beauty_services = await get_beauty_services_use_cases.execute()
+    beauty_services = await get_beauty_services_use_case.execute()
     return [beauty_services_mapper.to_beauty_service_schema(beauty_service) for beauty_service in beauty_services]
+
+@router.get('/{service_id}',
+            response_model=BeautyServiceSchema)
+async def get_beauty_service(get_beauty_service_use_case: Annotated[GetBeautyServiceUseCase, Depends(get_get_beauty_service_use_case)],
+                              beauty_services_mapper: Annotated[BeautyServicesMapper, Depends(get_beauty_service_mapper)],
+                              beauty_service_id: int):
+    try:
+        beauty_service = await get_beauty_service_use_case.execute(beauty_service_id=beauty_service_id)
+        return beauty_services_mapper.to_beauty_service_schema(beauty_service)
+    except ServiceNotFoundException as e:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=e.detail
+        )
+
+    
 
 @router.post('/',
              response_model=BeautyServiceSchema)
@@ -70,7 +86,7 @@ async def delete_beauty_service(delete_beauty_service_use_case: Annotated[Delete
     try:
         await get_master_beauty_service_use_case.execute(beauty_service_id=beauty_service_id,
                                                             master_id=master_id)
-        return await delete_beauty_service_use_case.execute(beauty_service_id=beauty_service_id)
+        await delete_beauty_service_use_case.execute(beauty_service_id=beauty_service_id)
     except ServiceNotFoundException as e:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,

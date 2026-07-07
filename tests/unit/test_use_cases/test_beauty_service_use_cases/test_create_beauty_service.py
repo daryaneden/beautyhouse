@@ -24,7 +24,7 @@ class TestCreateBeautyServiceUseCase:
     def use_case(self, mock_repo):
         return CreateBeautyServiceUsecase(repo=mock_repo)
     
-    async def test_create_beauty_service_success(self, use_case, mock_repo, mock_beauty_service_create_dto):
+    async def test_create_beauty_service(self, use_case, mock_repo, mock_beauty_service_create_dto):
 
         result = await use_case.execute(mock_beauty_service_create_dto, master_id=1)
         mock_repo.create_beauty_service.assert_called_once()
