@@ -19,8 +19,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install Dependencies
-        run:
-          python3 -m pip install -r requirements.txt
+        run: |
+          python3 -m pip install poetry
+          poetry install
       - name: Ruff
         run: ruff check app
 
@@ -52,7 +53,8 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install Dependencies
         run:
-          python3 -m pip install -r requirements.txt
+          python3 -m pip install poetry
+          poetry install
       - name: Run Unit Tests
         env:
           PYTHONPATH: .
@@ -74,7 +76,8 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install Dependencies
         run:
-          python3 -m pip install -r requirements.txt
+          python3 -m pip install poetry
+          poetry install
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Build Docker Compose
