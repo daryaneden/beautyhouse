@@ -1,7 +1,6 @@
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from app.infrastructure.db import Base
 import pytest_asyncio
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.main import app as main_app
 from app.infrastructure.db import get_db_session
 from httpx import ASGITransport, AsyncClient

@@ -2,9 +2,11 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-COPY requirements.txt /app/
+COPY pyproject.toml /app/
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install poetry
+
+RUN poetry install
 
 COPY . /app
 
