@@ -5,6 +5,7 @@ description = "Service for beauty masters"
 authors = [
     {name = "Your Name",email = "you@example.com"}
 ]
+package-mode = false
 requires-python = ">=3.12"
 dependencies = [
     "factory_boy==3.3.3",
