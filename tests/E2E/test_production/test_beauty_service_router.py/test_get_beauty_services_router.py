@@ -4,7 +4,6 @@ from app.presentation.dependencies import get_get_beauty_services_use_case
 from tests.fakes.fake_beauty_service_data import FakeBeautyServiceData
 from tests.fakes.fake_master_profile_data import FakeMasterProfileData
 from app.presentation.beauty_services.v1.schemas import BeautyServiceSchema
-from app.presentation.beauty_services.v1.mappers import BeautyServicesMapper
 from app.main import app as main_app
 
 @pytest.mark.asyncio

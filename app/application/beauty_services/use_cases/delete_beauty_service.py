@@ -1,5 +1,4 @@
 from app.domain.beauty_services.interface import BeautyServiceRepository
-from app.application.beauty_services.use_cases.exceptions import ServiceNotFoundException
 
 class DeleteBeautyServicesUsecase:
 
