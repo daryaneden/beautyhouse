@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -42,7 +42,7 @@ jobs:
       - name: Lint test
         run: poetry run ruff check app
 
-  unit-test:
+  unit-test: 
     runs-on: ubuntu-latest
     strategy:
       matrix:
