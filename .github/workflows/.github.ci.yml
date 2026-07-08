@@ -31,10 +31,13 @@ jobs:
         with:
           path: .venv
           key: venv-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Force sync lockfile metadata
+        run: poetry lock
       
       - name: Install Dependencies
         if: steps.cache-venv.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root --no-check
+        run: poetry install --no-interaction --no-root
 
       - name: Lint test
         run: poetry run ruff check app
