@@ -1,6 +1,7 @@
 from app.infrastructure.exceptions import TokenNotCorrectException, TokenExpiredException
 from app.setting import Settings
-from jose import jwt, JWTError
+import jwt
+from jwt import InvalidTokenError
 from datetime import datetime as dt
 from datetime import timedelta
 from fastapi import security, Security, HTTPException
@@ -27,7 +28,7 @@ class JwtService:
          payload = jwt.decode(access_token, 
                               self.settings.JWT_SECRET_KEY,
                               algorithms=[self.settings.JWT_ENCODE_ALGORITHM])
-      except JWTError:
+      except InvalidTokenError:
          raise TokenNotCorrectException
       if payload['expire'] < dt.now().timestamp():
          raise TokenExpiredException
