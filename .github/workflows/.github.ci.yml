@@ -137,11 +137,11 @@ jobs:
           PYTHONPATH: .
           DATABASE_URL: postgresql://postgres:password@localhost:5432/beautyhouse-test
         run:  
-          python3 -m pytest
+          poetry run python3 -m pytest
 
       - name: Docker Container Close
         run: docker compose -f docker-compose.test.yml down
-        
+
 
 
 
