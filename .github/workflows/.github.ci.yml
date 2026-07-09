@@ -35,11 +35,17 @@ jobs:
       - name: Force sync lockfile metadata
         run: poetry lock
       
-      - name: Install Dependencies
-        run: poetry install --no-interaction --no-root
+      # - name: Install Dependencies
+      #   run: poetry install --no-interaction --no-root
 
-      - name: Lint test
-        run: poetry run ruff check app
+      # - name: Lint test
+      #   run: poetry run ruff check app
+
+      - name: Install Ruff
+        run: pip install ruff
+
+      - name: Run Ruff check
+        run: ruff check app
 
   unit-test: 
     runs-on: ubuntu-latest
