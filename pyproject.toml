@@ -6,7 +6,8 @@ authors = [
     {name = "Your Name",email = "you@example.com"}
 ]
 
-requires-python = ">=3.10"
+[tool.poetry.dependencies]
+python = "^3.10"
 
 [tool.poetry.group.dev.dependencies]
 python = "^3.10"
