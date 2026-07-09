@@ -24,5 +24,5 @@ class TestCreateMasterProfileRouter:
 
         response = await client.post(url='/masters/', json = master_profile_data.model_dump())
 
-        assert response.status_code == 200
+        assert response.status_code == 200 
             
