@@ -8,6 +8,7 @@ authors = [
 
 [tool.poetry.dependencies]
 python = "^3.10"
+asyncpg = "^0.31.0"
 
 [tool.poetry.group.dev.dependencies]
 python = "^3.10"
