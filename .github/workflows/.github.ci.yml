@@ -93,7 +93,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
         ports:
-          - 5432
+          - "5432:5432"
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -124,7 +124,7 @@ jobs:
         run: poetry lock
 
       - name: Install Dependencies
-        run: poetry install --no-interaction
+        run: poetry install --no-interaction --no-root
 
       # - name: Set up Docker Buildx
       #   uses: docker/setup-buildx-action@v2
