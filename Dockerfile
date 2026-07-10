@@ -2,11 +2,14 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
+# Отключаем создание виртуальных окружений Poetry и задаем PYTHONPATH
+ENV POETRY_VIRTUALENVS_CREATE=false \
+    PYTHONPATH=/app
+
 COPY pyproject.toml poetry.lock* /app/
 
-RUN pip install --no-cache-dir poetry
-
-RUN poetry install --no-root --no-interaction
+RUN pip install --no-cache-dir poetry \
+    && poetry install --no-root --no-interaction --no-ansi
 
 COPY . /app
 
