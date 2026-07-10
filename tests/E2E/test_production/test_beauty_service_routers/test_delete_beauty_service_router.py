@@ -1,6 +1,5 @@
 import pytest_asyncio
 import pytest
-from pytest_mock import mocker
 from app.presentation.dependencies import get_delete_beauty_service_use_case
 from tests.fakes.fake_beauty_service_data import FakeBeautyServiceData
 from tests.fakes.fake_master_profile_data import FakeMasterProfileData

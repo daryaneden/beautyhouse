@@ -1,5 +1,4 @@
 from app.domain.masters.interface import MasterProfileRepository
-from app.domain.masters.entities import MasterProfile
 from app.application.masters.profile.use_cases.create_master_profile import CreateMasterProfileUseCase
 
 import pytest

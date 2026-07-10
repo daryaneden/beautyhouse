@@ -18,12 +18,11 @@ class TestCreateMasterProfileRouter:
         
         main_app.dependency_overrides.clear()
 
-    async def test_create_master_profile_data(self, setup_dependencies):
-        async with AsyncClient(app=main_app, base_url="http://test") as client:
+    async def test_create_master_profile_data(self, client, setup_dependencies):
 
-            master_profile_data = FakeMasterProfileSchema()
+        master_profile_data = FakeMasterProfileSchema()
 
-            response = await client.post(url='/masters/', json = master_profile_data.model_dump())
+        response = await client.post(url='/masters/', json = master_profile_data.model_dump())
 
-            assert response.status_code == 200
+        assert response.status_code == 200 
             
